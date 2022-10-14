@@ -22,3 +22,13 @@ def create(request):
         'form':form
     }
     return render(request,'reviews/create.html',context)
+
+def index(request):
+    
+    review = Review.objects.order_by('pk')
+
+    context = {
+        'review':review
+    }   
+
+    return render(request,'reviews/index.html',context)
