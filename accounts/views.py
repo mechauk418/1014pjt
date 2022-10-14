@@ -5,6 +5,8 @@ from .forms import CustomUserChangeForm
 from .models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
+
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -89,3 +91,12 @@ def update(request):
     }
 
     return render(request,'accounts/update.html',context)
+
+
+def logout(request):
+
+
+    auth_logout(request)
+
+
+    return redirect('accounts:index')
