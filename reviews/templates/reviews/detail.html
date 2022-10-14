@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container d-flex justify-content-center my-5">
+  <div class="col-10 col-lg-8">
+    <div class="p-4">
+      <h1 class="mb-5 text-center">{{ review.title }}</h1>
+      <p class="text-end">
+        작성일
+        {{ review.created_at|date:'Y-m-d a f' }}<br>
+        수정일
+        {{ review.updated_at|date:'Y-m-d a f' }}
+      </p>
+      
+
+
+      <p>{{ review.content }}</p>
+      <form action="" method="POST" class="form">
+        {% csrf_token %}
+        <a href="" class="btn btn-outline-primary">수정</a>
+        <input class="btn btn-outline-danger" type="submit" value="삭제">
+        <a href="{% url 'reviews:index' %}" class="btn btn-outline-secondary">뒤로</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

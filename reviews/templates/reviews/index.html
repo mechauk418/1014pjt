@@ -20,7 +20,7 @@
         {% for re in review %}
         <tr>
           <th scope="row">{{re.pk}}</th>
-          <td><a href="{% url 'reviews:detail' ac.pk %}"> {{re.title}}</a> </td>
+          <td><a href="{% url 'reviews:detail' re.pk %}"> {{re.title}}</a> </td>
           <td>{{re.movie_name}} </td>
           <td>{{re.grade}} </td>
 
