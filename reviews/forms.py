@@ -10,4 +10,5 @@ class ReviewForm(forms.ModelForm):
             'title': '제목',
             'content': "내용",
             'movie_name': '영화 제목',
+            'grade' : '평점',
         }

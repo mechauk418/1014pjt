@@ -1,0 +1,22 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+* {
+ font-family: 'Hanna', fantasy;
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+main {
+  flex: 1;
+}
