@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class="container d-flex align-items-center flex-column my-5">
+  <h1 class="text-center my-3"> Profile </h1>
+  <div class="col-10">
+    <table class="table my-5">
+      <thead>
+        <tr>
+          <th scope="col">PK</th>
+          <th scope="col">유저 아이디</th>
+          <th scope="col">이메일</th>
+          <th scope="col">마지막 로그인</th>
+          <th scope="col">권한</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <th scope="row" class="align-middle">  {{ac.pk}} </td>
+            <td class="align-middle">{{ac.username}}</td>
+            <td class="align-middle">{{ac.email}}</td>
+            <td class="align-middle">{{ac.last_login}}</td>
+            <td class="align-middle">{{ac.is_superuser}}</td>
+
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+{% endblock content %}

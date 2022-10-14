@@ -57,3 +57,13 @@ def login(request):
     }
 
     return render(request,'accounts/login.html',context)
+
+def detail(request,pk):
+
+    ac_list_detail = User.objects.get(pk=pk)
+
+    context = {
+        'ac' : ac_list_detail
+    }
+
+    return render(request,'accounts/detail.html',context)
