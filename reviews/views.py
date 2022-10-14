@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+
+import reviews
 from .forms import ReviewForm
 from .models import Review
 from django.contrib.auth.decorators import login_required
@@ -42,3 +44,20 @@ def detail(request,pk):
     }
 
     return render(request,'reviews/detail.html', context)
+
+def update(request,pk):
+    review = Review.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST, instance=review)
+        if review_form.is_valid():
+            review_form.save()
+            return redirect("reviews:detail", review.pk)
+    else:
+        review_form = ReviewForm(instance=review)
+    context={
+        "review":review,
+        'review_form' : review_form,
+    }
+
+    return render(request,'reviews/update.html',context)

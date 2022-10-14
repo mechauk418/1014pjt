@@ -18,7 +18,7 @@
       <p>{{ review.content }}</p>
       <form action="" method="POST" class="form">
         {% csrf_token %}
-        <a href="" class="btn btn-outline-primary">수정</a>
+        <a href="{% url 'reviews:update' review.pk %}" class="btn btn-outline-primary">수정</a>
         <input class="btn btn-outline-danger" type="submit" value="삭제">
         <a href="{% url 'reviews:index' %}" class="btn btn-outline-secondary">뒤로</a>
       </form>
@@ -26,3 +26,5 @@
   </div>
 </div>
 {% endblock content %}
+
+<!-- {% url 'reviews:delete' review.pk %} -->
