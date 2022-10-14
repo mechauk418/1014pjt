@@ -1,6 +1,7 @@
 from http.client import INTERNAL_SERVER_ERROR
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
+from .forms import CustomUserChangeForm
 from .models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
@@ -66,4 +67,25 @@ def detail(request,pk):
         'ac' : ac_list_detail
     }
 
-    return render(request,'accounts/detail.html',context)
+    return render(request,'accounts/detail.html', context)
+
+def update(request):
+
+
+    if request.method == 'POST':
+
+        form = CustomUserChangeForm(request.POST,instance=request.user)
+        if form.is_valid():
+            form.save()
+            
+        
+            return redirect('accounts:index')
+
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+
+    context={
+        'form':form
+    }
+
+    return render(request,'accounts/update.html',context)
