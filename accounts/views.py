@@ -1,4 +1,3 @@
-from http.client import INTERNAL_SERVER_ERROR
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
 from .forms import CustomUserChangeForm

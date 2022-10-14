@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class="d-flex flex-column align-items-center my-5">
+  <h1 class="text-center">리뷰 작성 </h1> 
+  <form class="col-9 align-items-center" action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="text-end">
+      <button class="btn btn-primary my-3" type="sumbit"> 작성 </button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}

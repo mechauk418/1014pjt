@@ -33,7 +33,7 @@
             <li class=" nav-item">
               {% if request.user.is_authenticated %}
               <li class=" nav-item">
-                <a class="nav-link" href="{% url 'accounts:index' %}">리뷰 작성</a>
+                <a class="nav-link" href="{% url 'reviews:create' %}">리뷰 작성</a>
               </li>
                 <li class=" nav-item">
                   <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
