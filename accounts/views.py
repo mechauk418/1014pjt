@@ -1,10 +1,20 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
+from .models import User
+
 # Create your views here.
 
 def index(request):
 
-    return render(request,'accounts/index.html')
+    accounts = User.objects.order_by('pk')
+
+    context = {
+        'accounts':accounts
+    }   
+
+    
+
+    return render(request,'accounts/index.html',context)
 
 def signup(request):
 
